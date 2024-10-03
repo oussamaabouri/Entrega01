@@ -62,8 +62,18 @@ print(numeroS(4, 2))
 
 
 #Ejercicio5
-def Newton(a, e, f, df):
-    pass
+def Newton(a:float, e:float, f:str, df:str):
+    x:float = a
+    funcion = float(eval(f.replace('x', str(x))))
+    while funcion > e:
+        x = x - (float(eval(f.replace('x', str(x))))/ float(eval(df.replace('x', str(x)))))
+        funcion = float(eval(f.replace('x', str(x))))
+        
+    return x
+    
+    
+print(Newton(3, 0.001, '2*x**2', '4*x'))
+    
 
 
 
