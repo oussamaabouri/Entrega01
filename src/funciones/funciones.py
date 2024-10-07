@@ -65,7 +65,7 @@ print(numeroS(4, 2))
 def Newton(a:float, e:float, f = lambda x: 2*x**2, df = lambda x: 4*x):
     x0:float = a
     funcion:float = float(f(x0))
-    while funcion > e:
+    while abs(funcion) > e:
         x0 -= f(x0)/df(x0)
         funcion = float(f(x0))
     
