@@ -1,7 +1,7 @@
 from typing import Callable
-#Ejercicio1
+#Función1
 
-def producto(n:int, k:int):
+def producto(n:int, k:int) -> int:
     n, k = max(n, k), min(n, k)
     s:int = 1
     for i in range(k+1):
@@ -9,11 +9,10 @@ def producto(n:int, k:int):
         
     return s
 
-print(producto(4, 2))
 
 
-#Ejercicio2
-def secuencia(a1:int, r:int, k:int):
+#Función2
+def secuencia(a1:int, r:int, k:int) -> int:
     ls: list[int] = [a1]
     for i in range(2, k+1):
         ls.append(a1*r**(i-1))
@@ -23,11 +22,10 @@ def secuencia(a1:int, r:int, k:int):
     
     return s
 
-print(secuencia(3, 5, 2))
 
 
-#Ejercicio3
-def combinatorio(n:int, k:int):
+#Función3
+def combinatorio(n:int, k:int) -> int:
     n, k = max(n, k), min(n, k)
     def factorial(t):
         r:int = 1
@@ -39,11 +37,10 @@ def combinatorio(n:int, k:int):
     
     return s
 
-print(combinatorio(4, 2))
 
 
-#Ejercicio4
-def numeroS(n, k):
+#Función4
+def numeroS(n, k) -> float:
     n, k = max(n, k), min(n, k)
     def factorial(t):
         r:int = 1
@@ -58,11 +55,10 @@ def numeroS(n, k):
         
     return s*t
     
-print(numeroS(4, 2))
 
 
-#Ejercicio5
-def Newton(a:float, e:float, f:Callable[[float], float], df:Callable[[float], float]):
+#Función5
+def Newton(a:float, e:float, f:Callable[[float], float], df:Callable[[float], float]) -> float:
     x0:float = a
     funcion:float = float(f(x0))
     while abs(funcion) > e:
@@ -71,7 +67,7 @@ def Newton(a:float, e:float, f:Callable[[float], float], df:Callable[[float], fl
     
     return x0
 
-print(Newton(3, 0.001, lambda x: 2*x**2, lambda x: 4*x))
+
 
 
     
