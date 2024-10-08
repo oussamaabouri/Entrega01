@@ -1,4 +1,4 @@
-
+from typing import Callable
 #Ejercicio1
 
 def producto(n:int, k:int):
@@ -62,7 +62,7 @@ print(numeroS(4, 2))
 
 
 #Ejercicio5
-def Newton(a:float, e:float, f = lambda x: 2*x**2, df = lambda x: 4*x):
+def Newton(a:float, e:float, f:Callable[[float], float], df:Callable[[float], float]):
     x0:float = a
     funcion:float = float(f(x0))
     while abs(funcion) > e:
@@ -71,7 +71,7 @@ def Newton(a:float, e:float, f = lambda x: 2*x**2, df = lambda x: 4*x):
     
     return x0
 
-print(Newton(3, 0.001))
+print(Newton(3, 0.001, lambda x: 2*x**2, lambda x: 4*x))
 
 
     
