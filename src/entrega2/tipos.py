@@ -213,13 +213,7 @@ class Pila(Agregado_lineal[E]):
     
 
 
-    
-    
-    
-    
-    
-    
-    
+
     
     
     
