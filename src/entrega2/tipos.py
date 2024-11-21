@@ -50,8 +50,27 @@ class Agregado_lineal(ABC, Generic[E]):
             self.remove()
             
         return l
+    
+    
 
-
+    def contains(self, e:E) -> bool:
+        return e in self.elements
+    
+    def find(self,func: Callable[[E], bool]) -> E | None:
+        for e in self.elements:
+            if func(e):
+                return e
+        return None
+    
+    def filter(self, func: Callable[[E], bool]) -> list[E]:
+        ls:list[E] = []
+        for e in self.elements:
+            if func(e):
+                ls.append(e)
+        return ls
+        
+        
+        
 
 class Lista_ordenada(Agregado_lineal[E], Generic[E, R]):
     def __init__(self, order:Callable[[E], R]) -> Lista_ordenada[E, R]:
@@ -216,9 +235,7 @@ class Pila(Agregado_lineal[E]):
 
     
     
-    
-    
-    
+
     
     
     
