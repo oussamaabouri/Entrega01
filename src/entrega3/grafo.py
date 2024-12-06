@@ -219,10 +219,9 @@ if __name__ == '__main__':
     print(grafo)
     print('---------------')
     print(grafo.inverse_graph())
-
+    grafo.draw(titulo="Mi Grafo Dirigido")
+    grafo.inverse_graph().draw(titulo="Inverso del Grafo Dirigido")
  
     
     # Dibujar el grafo
-    grafo.draw(titulo="Mi Grafo Dirigido")
-    
-    grafo.inverse_graph().draw(titulo="Inverso del Grafo Dirigido")
+
