@@ -46,7 +46,7 @@ public class Lecturas {
 	}
 	
 	public static List<String> PalabrasUnicas(String file){
-		HashSet palabras = new HashSet<>();
+		HashSet<String> palabras = new HashSet<>();
 		for(String linea: lineasDeFichero(file)) {
 			for(String p:linea.split(" ")) {
 				if(! p.isEmpty()) {
@@ -77,6 +77,7 @@ public class Lecturas {
 		System.out.println(LineasQueContinenPalabra("C:\\Users\\oussa\\git\\Entrega01\\resources\\lin_quijote.txt", "quijote"));
 		System.out.println(PalabrasUnicas("C:\\Users\\oussa\\git\\Entrega01\\resources\\archivo_palabras.txt"));
 		System.out.println(Longitud("C:\\Users\\oussa\\git\\Entrega01\\resources\\palabras_random.csv", ","));
+		System.out.println(Longitud("C:\\Users\\oussa\\git\\Entrega01\\resources\\vacio.csv", ","));
 
 	}
 
