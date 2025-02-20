@@ -53,13 +53,21 @@ public class Funciones {
 	}
 
 	public static void main(String[] args) {
-		System.out.println(Factorial(3));
+		System.out.println("______________");
+		System.out.println("Test1:");
 		System.out.println(Producto(4, 2));
+		System.out.println("______________");
+		System.out.println("Test2:");
 		System.out.println(Secuencia(3, 5, 2));
+		System.out.println("______________");
+		System.out.println("Test3:");
 		System.out.println(Combinatorio(4, 2));
+		System.out.println("______________");
+		System.out.println("Test4:");
 		System.out.println(S(4, 2));
+		System.out.println("______________");
+		System.out.println("Test5:");
 		System.out.println(Newton(x -> 2*Math.pow(x, 2), x -> 4*x, 3., 0.001));
-
 	}
 
 }

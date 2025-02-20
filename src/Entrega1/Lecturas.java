@@ -73,9 +73,17 @@ public class Lecturas {
 	}
 
 	public static void main(String[] args) {
+		System.out.println("______________________________________________________________________________________________________");
+		System.out.println("Test1:");
 		System.out.println(Contador("C:\\Users\\oussa\\git\\Entrega01\\resources\\lin_quijote.txt", " ", "quijote"));
+		System.out.println("______________________________________________________________________________________________________");
+		System.out.println("Test2:");
 		System.out.println(LineasQueContinenPalabra("C:\\Users\\oussa\\git\\Entrega01\\resources\\lin_quijote.txt", "quijote"));
+		System.out.println("______________________________________________________________________________________________________");
+		System.out.println("Test3:");
 		System.out.println(PalabrasUnicas("C:\\Users\\oussa\\git\\Entrega01\\resources\\archivo_palabras.txt"));
+		System.out.println("______________________________________________________________________________________________________");
+		System.out.println("Test4:");
 		System.out.println(Longitud("C:\\Users\\oussa\\git\\Entrega01\\resources\\palabras_random.csv", ","));
 		System.out.println(Longitud("C:\\Users\\oussa\\git\\Entrega01\\resources\\vacio.csv", ","));
 
