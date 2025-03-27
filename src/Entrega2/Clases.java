@@ -152,7 +152,7 @@ public class Clases {
 	    }
 	    @Override
 	    public String toString() {
-	    	return String.format("ColaPrioridad(%s)", elementos.stream().map(i -> i.toString()).collect(joining(",")));
+	    	return String.format("ColaPrioridad(%s)", elementos.stream().map(e -> String.format("(%s,%s)", e.value.toString(), e.priority.toString() )).collect(joining(",")));
 	    }
 	}
 	
@@ -178,9 +178,102 @@ public class Clases {
 
 	
 	public static void main(String[] args) {
+		System.out.println("------------------Test ListaOrdenada---------------------------");
+		ListaOrdenada<Integer> lo = ListaOrdenada.<Integer>of(Comparator.naturalOrder());  		
+		lo.add(5);
+		lo.add(2);
+		lo.add(8);
+		lo.add(1);
+		lo.add(3);
+		System.out.println(lo);
+		System.out.println(lo.size());
+		System.out.println(lo.remove());
+		System.out.println(lo);
+		lo.addAll(List.of(4, 6, 7));
+		System.out.println(lo);
+		System.out.println(lo.removeAll());
+		System.out.println(lo.isEmpty());
+		ListaOrdenada<String> los = ListaOrdenada.<String>of(Comparator.naturalOrder());  
+		los.addAll(List.of("banana", "apple", "date", "cherry"));
+		System.out.println(los);
+		System.out.println();
 		
+		System.out.println("------------------Test ListaOrdenadaSinRepeticion--------------");
+		ListaOrdenadaSinRepeticion<Integer> losr = ListaOrdenadaSinRepeticion.<Integer>of(Comparator.naturalOrder());  		
+		losr.add(5);
+		losr.add(2);
+		losr.add(8);
+		losr.add(1);
+		losr.add(3);
+		losr.add(5);
+		losr.add(2);	
+		System.out.println(losr);
+		System.out.println(losr.size());
+		System.out.println(losr.remove());
+		System.out.println(losr);
+		losr.addAll(List.of(4, 6, 7, 4));
+		System.out.println(losr);
+		System.out.println();
+		
+		System.out.println("------------------Test Cola (FIFO)---------------------------");
+		Cola<String> cola = Cola.of();
+		cola.add("primero");
+		cola.add("segundo");
+		cola.add("tercero");
+		System.out.println(cola);
+		System.out.println(cola.size());
+		System.out.println(cola.remove());
+		System.out.println(cola);
+		System.out.println(cola.remove());
+		System.out.println(cola);
+		System.out.println(cola.remove());
+		System.out.println(cola);
+		System.out.println(cola.isEmpty());
+		System.out.println(cola.remove()==null? "No se puede eliminar de un agregado vacío.": cola.remove());
 
-		
+		System.out.println("\n------------------Test Pila (LIFO)---------------------------");
+		Pila<Double> pila = new Pila<>();
+		pila.add(1.1);
+		pila.add(2.2);
+		pila.add(3.3);
+		System.out.println(pila);
+		System.out.println(pila.size());
+		System.out.println(pila.top());
+		System.out.println(pila.remove());
+		System.out.println(pila);
+		System.out.println(pila.remove());
+		System.out.println(pila);
+		System.out.println(pila.remove());
+		System.out.println(pila);
+		System.out.println(pila.isEmpty());
+		System.out.println(pila.top()==null? "La pila está vacía.": pila.top());
+
+		System.out.println("\n------------------Test ColaPrioridad---------------------------");
+		ColaPrioridad<String, Integer> cp = ColaPrioridad.ofPriority();
+		cp.add("Crítico", 1);
+		cp.add("Normal", 3);
+		cp.add("Urgente", 2);
+		cp.add("Bajo", 4);
+		System.out.println(cp.valuesAsList());
+		System.out.println(cp);
+		System.out.println(cp.size());
+		cp.decreasePriority("Normal", 1);
+		System.out.println(cp.valuesAsList());
+		System.out.println(cp.removeValue());
+		System.out.println(cp.valuesAsList());
+		System.out.println(cp.removeValue());
+		System.out.println(cp.valuesAsList());
+		System.out.println(cp.removeValue());
+		System.out.println(cp.valuesAsList());
+		System.out.println(cp.removeValue());
+		System.out.println(cp.valuesAsList());
+		System.out.println(cp.isEmpty());
+		System.out.println(cp.removeValue()==null? "No se puede eliminar de una cola vacía.": cp.removeValue());
+		cp.addAllValues(List.of("Tarea A", "Tarea B", "Tarea C"), 2);
+		System.out.println(cp);
+		cp.add("Tarea Urgente", 1);
+		System.out.println(cp);
+
 
 	}
 
