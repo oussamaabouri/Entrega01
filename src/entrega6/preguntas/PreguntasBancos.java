@@ -6,13 +6,11 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import us.lsi.bancos.Banco;
-import us.lsi.bancos.Personas;
-import us.lsi.bancos.Prestamo;
+import us.lsi.bancos.*;
 import us.lsi.ejemplos_b1_tipos.Persona;
 
 public class PreguntasBancos {
-
+	Banco banco = Banco.of();
 	public Map<String, Double> valorTotalPrestamosFuncional(int e, Double a, Double b, LocalDate f) {
 	    if (e <= 18) {
 	        throw new IllegalArgumentException("La edad debe ser mayor que 18");
@@ -26,7 +24,7 @@ public class PreguntasBancos {
 
 	    Personas personas = Personas.of();
 
-	    return this.prestamos().todos().stream()
+	    return this.banco.prestamos().todos().stream()
 	        .filter(p -> {
 	            return personas.personaDni(p.dniCliente())
 	                .map(persona -> persona.edad() < e)
@@ -53,7 +51,7 @@ public class PreguntasBancos {
 	    Personas personas = Personas.of();
 	    Map<String, Double> resultado = new HashMap<>();
 
-	    for (Prestamo p : prestamos().todos()) {
+	    for (Prestamo p : banco.prestamos().todos()) {
 	        Optional<Persona> personaOpt = personas.personaDni(p.dniCliente());
 
 	        if (personaOpt.isPresent()) {
@@ -74,9 +72,9 @@ public class PreguntasBancos {
 	
 	
 	public static void main(String[] args) {
-		Banco banco = Banco.of();
-		System.out.println(banco.valorTotalPrestamosFuncional(26, 10., 10000., LocalDate.of(2010, 5, 13)));
-		System.out.println(banco.valorTotalPrestamosImperativo(26, 10., 10000., LocalDate.of(2010, 5, 13)));
+		PreguntasBancos p = new PreguntasBancos();
+		System.out.println(p.valorTotalPrestamosFuncional(26, 10., 10000., LocalDate.of(2010, 5, 13)));
+		System.out.println(p.valorTotalPrestamosImperativo(26, 10., 10000., LocalDate.of(2010, 5, 13)));
 	}
 
 }
